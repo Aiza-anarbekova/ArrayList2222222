@@ -9,17 +9,21 @@ public class Student {
 
     public Student(String name, int age) {
         try {
-            if (age < 0) {
+            if (age < 0 ) {
+
                 throw new MyException(" -san berbeniz");
             }
             if (!name.matches("^[A-Za-z0-9]*$")) {
+
                 throw new MyException("white your name in English");
             }
 
         } catch (MyException e) {
             System.out.println(e.getMessage());
         } catch (InputMismatchException r) {
-            System.out.println("vhjmjk,h");
+            r.printStackTrace();
+        } catch (NullPointerException e) {
+            System.out.println("Students name is null");
         }
         if (age < 0) {
 
@@ -27,7 +31,6 @@ public class Student {
             this.age = age;
         }
         this.name = name;
-
     }
 
     public String getName() {
@@ -45,5 +48,4 @@ public class Student {
     public void setAge(int age) {
         this.age = age;
     }
-
 }
